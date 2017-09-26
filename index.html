@@ -56,9 +56,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -100,17 +100,29 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo -v</div></pre></td></tr></table></figure>
 <p>出现的信息如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">hexo-cli: 1.0.3</div><div class="line">os: Windows_NT 6.1.7601 win32 x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 6.11.2</div><div class="line">v8: 5.1.281.103</div><div class="line">uv: 1.11.0</div><div class="line">zlib: 1.2.11</div><div class="line">ares: 1.10.1-DEV</div><div class="line">icu: 58.2</div><div class="line">modules: 48</div><div class="line">openssl: 1.0.2l</div></pre></td></tr></table></figure>
-<h2 id="hexo使用"><a href="#hexo使用" class="headerlink" title="hexo使用"></a>hexo使用</h2><h3 id="创建本地博客目录"><a href="#创建本地博客目录" class="headerlink" title="创建本地博客目录"></a>创建本地博客目录</h3><p>在指定目录下（如/d/04Document/11Blog/test），通过以下命令即可得到初始化的博客目录</p>
+<h2 id="hexo本地"><a href="#hexo本地" class="headerlink" title="hexo本地"></a>hexo本地</h2><h3 id="创建本地博客目录"><a href="#创建本地博客目录" class="headerlink" title="创建本地博客目录"></a>创建本地博客目录</h3><p>在指定目录下（如/d/04Document/11Blog/test），通过以下命令即可得到初始化的博客目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
 <p>得到的信息如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">INFO  Cloning hexo-starter to D:\04Document\11Blog\<span class="built_in">test</span></div><div class="line">Cloning into <span class="string">'D:\04Document\11Blog\test'</span>...</div><div class="line">......</div><div class="line"></div><div class="line">INFO  Start blogging with Hexo!</div></pre></td></tr></table></figure>
 <h3 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h3><p>通过以下命令来安装依赖包<br>安装完成后目录如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">total 93</div><div class="line">-rw-r--r-- 1 liu-t11 197121 2063 九月 10 23:29 _config.yml</div><div class="line">-rw-r--r-- 1 liu-t11 197121  174 九月 11 23:27 db.json</div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 31 00:06 node_modules</div><div class="line">-rw-r--r-- 1 liu-t11 197121  483 八月 31 00:06 package.json</div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 30 23:58 public</div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 30 23:36 scaffolds</div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 30 23:36 <span class="built_in">source</span></div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 30 23:36 themes</div></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">total 93</div><div class="line">-rw-r--r-- 1 liu-t11 197121 2063 九月 10 23:29 _config.yml</div><div class="line">-rw-r--r-- 1 liu-t11 197121  174 九月 11 23:27 db.json</div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 31 00:06 node_modules</div><div class="line">-rw-r--r-- 1 liu-t11 197121  483 八月 31 00:06 package.json</div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 30 23:58 public</div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 30 23:36 scafolds</div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 30 23:36 <span class="built_in">source</span></div><div class="line">drwxr-xr-x 1 liu-t11 197121    0 八月 30 23:36 themes</div></pre></td></tr></table></figure>
+<h3 id="本地阅览"><a href="#本地阅览" class="headerlink" title="本地阅览"></a>本地阅览</h3><p>在正式发布博客之前，可以在本地阅览博客效果<br>一般而言，hexo安装成功之后，在source/_post目录下即有hello-world.md文件<br>该文件即为初始的blog文件</p>
+<p>如果该目录下没有文件，可以通过如下命令进行创建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"hello"</span></div></pre></td></tr></table></figure>
+<p>我们不对blog进行编辑，先查看一下显示效果</p>
+<h3 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h3><p>通过如下命令可以生成静态页面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<h3 id="创建本地服务器"><a href="#创建本地服务器" class="headerlink" title="创建本地服务器"></a>创建本地服务器</h3><p>通过如下命令创建本地服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo sever</div></pre></td></tr></table></figure>
+<p>此时有如下信息出现<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure></p>
+<p>在浏览器中打开该地址，即可查看blog网页界面。</p>
+<h2 id="hexo部署"><a href="#hexo部署" class="headerlink" title="hexo部署"></a>hexo部署</h2><p>通过上述操作已经可以再本地查看blog页面了，但是依然无法发布到网上供其他人查看。下面介绍如何部署hexo使得我们的blog能够在网上发布。</p>
+<p>目前常见的做法是结合github，在github上发布。</p>
+<h3 id="github预备"><a href="#github预备" class="headerlink" title="github预备"></a>github预备</h3><h3 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h3><h3 id="hexo发布"><a href="#hexo发布" class="headerlink" title="hexo发布"></a>hexo发布</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/11/教程/" data-id="cj7gbwl2h0000dkmzl9790cy3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/11/教程/" data-id="cj81rbng10001kcmz4v0kv1im" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -155,7 +167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/30/hello-world/" data-id="cj7gbwl2p0001dkmzcduvft64" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/30/hello-world/" data-id="cj81rbnfu0000kcmzo18pyogl" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -190,7 +202,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -215,7 +227,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Eric King<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
