@@ -56,9 +56,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -118,11 +118,41 @@
 <p>在浏览器中打开该地址，即可查看blog网页界面。</p>
 <h2 id="hexo部署"><a href="#hexo部署" class="headerlink" title="hexo部署"></a>hexo部署</h2><p>通过上述操作已经可以再本地查看blog页面了，但是依然无法发布到网上供其他人查看。下面介绍如何部署hexo使得我们的blog能够在网上发布。</p>
 <p>目前常见的做法是结合github，在github上发布。</p>
-<h3 id="github预备"><a href="#github预备" class="headerlink" title="github预备"></a>github预备</h3><h3 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h3><h3 id="hexo发布"><a href="#hexo发布" class="headerlink" title="hexo发布"></a>hexo发布</h3>
+<h3 id="github预备"><a href="#github预备" class="headerlink" title="github预备"></a>github预备</h3><p>假定你已经有github账号，那么可以继续后续操作。<br>如果没有，可以到<a href="https://github.com/" target="_blank" rel="external">github</a>上注册。</p>
+<p>首先要在创建新的repository，并将其命名为username.github.io，其中username即为注册后的用户名。</p>
+<p>该repository即为之后blog所在的地方，我们将其ssh地址拷贝下来，然后在blog目录中进行设定。</p>
+<p>打开_config.yml，找到deployment所在语句块，按照如下编辑<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: git@github.com:liu-t11/liu-t11.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>其中repository即为刚刚复制的ssh地址。<br>注意使用https地址可能会导致错误。</p>
+<h3 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h3><p>下面要保证电脑与github服务器之间的连接，通过ssh实现。</p>
+<p>首先生成SSH keys<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"registered.mail"</span></div></pre></td></tr></table></figure></p>
+<p>得到的信息如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/liu-t11/.ssh/id_rsa):</div><div class="line">Created directory <span class="string">'/c/Users/liu-t11/.ssh'</span>.</div><div class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</div><div class="line">Enter same passphrase again:</div><div class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/liu-t11/.ssh/id_rsa.</div><div class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/liu-t11/.ssh/id_rsa.pub.</div><div class="line">The key fingerprint is:</div><div class="line">SHA256:kGGtknncnBKwWDkdMuUUX78JYvD921HdXRlAc2Uut5U 2470669504@qq.com</div><div class="line">The key<span class="string">'s randomart image is:</span></div><div class="line"><span class="string">+---[RSA 2048]----+</span></div><div class="line"><span class="string">|    ==O+  . .+.oB|</span></div><div class="line"><span class="string">|   ooBo*.o .  o+*|</span></div><div class="line"><span class="string">|  . .=+==.o . .EO|</span></div><div class="line"><span class="string">|    + =o+. o o +o|</span></div><div class="line"><span class="string">|     o .S   + .. |</span></div><div class="line"><span class="string">|             o . |</span></div><div class="line"><span class="string">|            . .  |</span></div><div class="line"><span class="string">|                 |</span></div><div class="line"><span class="string">|                 |</span></div><div class="line"><span class="string">+----[SHA256]-----+</span></div></pre></td></tr></table></figure></p>
+<p>然后输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-agent -s</div></pre></td></tr></table></figure>
+<p>输入命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-add ~/.ssh/id_rsa</div></pre></td></tr></table></figure></p>
+<p>如果出现如下错误<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Could not open a connection to your authentication agent.</div></pre></td></tr></table></figure></p>
+<p>则可以输入如下命令再尝试<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-agent.exe bash</div></pre></td></tr></table></figure></p>
+<p>之后拷贝public key到github创建github网站与电脑的连接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ clip &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure></p>
+<p>在github中个人头像的下拉菜单中找到settings，进入personal settings中的SSH and GPG keys，点击new SSH key，将拷贝的信息粘贴进去即可。</p>
+<p>通过命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure></p>
+<p>可以测试是否建立连接。得到的信息如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">The authenticity of host <span class="string">'github.com (192.30.255.112)'</span> can<span class="string">'t be established.</span></div><div class="line"><span class="string">RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span></div><div class="line"><span class="string">Are you sure you want to continue connecting (yes/no)? yes</span></div><div class="line"><span class="string">Warning: Permanently added '</span>github.com,192.30.255.112<span class="string">' (RSA) to the list of known hosts.</span></div><div class="line"><span class="string">Hi liu-t11! You'</span>ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
+<h3 id="hexo发布"><a href="#hexo发布" class="headerlink" title="hexo发布"></a>hexo发布</h3><p>同样先生成静态页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure></p>
+<p>之前创建的是本地服务器，用到server命令，现在不需要，通过如下命令发布blog<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
+<p>这样就可以了，然后在相应的网址<a href="https://username.github.io上既可以查看到自己的blog了。" target="_blank" rel="external">https://username.github.io上既可以查看到自己的blog了。</a></p>
+<h3 id="其他常见问题"><a href="#其他常见问题" class="headerlink" title="其他常见问题"></a>其他常见问题</h3><p>在实现过程中，还会遇到其他问题。</p>
+<ol>
+<li><p>hexo不支持发布到git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>git身份设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.email <span class="string">"you@example.com"</span></div><div class="line">$ git config --global user.name <span class="string">"your name"</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/11/教程/" data-id="cj81rbng10001kcmz4v0kv1im" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/09/11/教程/" data-id="cj82kl9to0000zomzs9m47xky" class="article-share-link">Share</a>
       
       
     </footer>
@@ -167,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/30/hello-world/" data-id="cj81rbnfu0000kcmzo18pyogl" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/08/30/hello-world/" data-id="cj82kl9tw0001zomz5wwuchen" class="article-share-link">Share</a>
       
       
     </footer>
@@ -202,7 +232,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -227,7 +257,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Eric King<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
